@@ -160,8 +160,13 @@ class _PretrainedWordVectors(object):
 
                 if self.is_include is not None and not self.is_include(word):
                     continue
+                try:
+                    vectors[len(index_to_token)] = torch.tensor([float(x) for x in entries])
+                except ValueError as err:
+                    print("following line is broken in the word embedding file!\n", line)
+                    raise
 
-                vectors[len(index_to_token)] = torch.tensor([float(x) for x in entries])
+
                 index_to_token.append(word)
 
             self.index_to_token = index_to_token

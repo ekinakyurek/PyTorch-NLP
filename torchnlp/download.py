@@ -165,7 +165,7 @@ def download_file_maybe_extract(url, directory, filename=None, extension=None, c
             urllib.request.urlretrieve(url, filename=filepath, reporthook=_reporthook(t))
 
     _maybe_extract(compressed_filename=filepath, directory=directory, extension=extension)
-
+    print(check_files)
     if not _check_download(*check_files):
         raise ValueError('[DOWNLOAD FAILED] `*check_files` not found')
 
@@ -202,6 +202,5 @@ def download_files_maybe_extract(urls, directory, check_files=[]):
 
     for url in urls:
         download_file_maybe_extract(url=url, directory=directory)
-
     if not _check_download(*check_files):
         raise ValueError('[DOWNLOAD FAILED] `*check_files` not found')

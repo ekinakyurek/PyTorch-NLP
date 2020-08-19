@@ -3,6 +3,7 @@ from functools import partial
 from torchnlp.word_to_vector.char_n_gram import CharNGram
 from torchnlp.word_to_vector.fast_text import FastText
 from torchnlp.word_to_vector.glove import GloVe
+from torchnlp.word_to_vector.vico import Vico
 
 aliases = {
     "charngram.100d": partial(CharNGram),
@@ -17,5 +18,10 @@ aliases = {
     "glove.6B.50d": partial(GloVe, name="6B", dim="50"),
     "glove.6B.100d": partial(GloVe, name="6B", dim="100"),
     "glove.6B.200d": partial(GloVe, name="6B", dim="200"),
-    "glove.6B.300d": partial(GloVe, name="6B", dim="300")
+    "glove.6B.300d": partial(GloVe, name="6B", dim="300"),
+    "vico.linear.50d": partial(Vico, name="linear", dim="350"),
+    "vico.linear.100d": partial(Vico, name="linear", dim="400"),
+    "vico.linear.200d": partial(Vico, name="linear", dim="500"),
+    "vico.select.200d": partial(Vico, name="select", dim="500"),
+    
 }
